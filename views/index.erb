@@ -28,7 +28,20 @@
       <p>
         The SECRET NUMBER is <%= number %>  
       </p>
+      <p>
+        Generating new number... 
+      </p>
+    <% elsif response == 'lost'%>
+      <p>
+        You lost.
+      </p>
+       <p>
+        Generating new number... 
+      </p>
     <%end%>
+    <p>
+      You have <%= guesses%> guesses left.
+    </p>
     <form>
       <input type='text' name='guess' />
       <input type='submit' value='Guess!' />
