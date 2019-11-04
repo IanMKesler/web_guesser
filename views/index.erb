@@ -1,8 +1,25 @@
 <html>
   <head></head>
   <body>
-    <p>
-      The SECRET NUMBER is <%= number %>
-    </p>
+    <%if response.include?("high") || response.include?("low")%>
+      <%if response.include?("way")%>
+        <p>
+            Way too <%=response[4..-1]%>!
+        </p>
+      <%else%>
+          Too <%= response%>!
+      <%end%>
+    <%elsif response == "correct"%>
+      <p>
+        You got it right!
+      </p>
+      <p>
+        The SECRET NUMBER is <%= number %>  
+      </p>
+    <%end%>
+    <form>
+      <input type='text' name='guess' />
+      <input type='submit' value='Guess!' />
+    </form>
   </body>
 </html>
