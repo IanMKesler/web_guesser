@@ -26,7 +26,7 @@
         You got it right!
       </p>
       <p>
-        The SECRET NUMBER is <%= number %>  
+        The secret number is <%= number %>. 
       </p>
       <p>
         Generating new number... 
@@ -37,11 +37,16 @@
       </p>
        <p>
         Generating new number... 
-      </p>
+      </p>        
     <%end%>
     <p>
       You have <%= guesses%> guesses left.
     </p>
+    <%if cheat%>
+        <p>
+            The secret number is <%= number %>, cheater.  
+        </p>
+    <%end%>
     <form>
       <input type='text' name='guess' />
       <input type='submit' value='Guess!' />

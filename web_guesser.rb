@@ -24,11 +24,13 @@ end
 
 get '/' do
     guess = params["guess"].to_i
+    cheat = params["cheat"]
+    number = settings.secret_number
     @@guesses -= 1
-    response = check_guess(guess - settings.secret_number)
+    response = check_guess(guess - number)
     if @@guesses == 0
         response = "lost" unless response == "correct"
     end
-    reset_game if response == "lost" || response == "correct"
-    erb :index, :locals => {:number => settings.secret_number, :response => response, :guesses => @@guesses} #needs to return this!
+    reset_game if response == 'lost' || response == 'correct'
+    erb :index, :locals => {:number => number, :response => response, :guesses => @@guesses, :cheat => cheat} #needs to return this!
 end
