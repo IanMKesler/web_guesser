@@ -1,5 +1,17 @@
 <html>
-  <head></head>
+  <head>
+      <style>
+      body {
+        <%if response.include?("way")%>
+            background: red;
+        <%elsif response.include?("high") || response.include?("low")%>
+            background: lightcoral;
+        <%elsif response == "correct"%>
+            background: green;
+        <%end%>
+        }  
+      </style>
+  </head>
   <body>
     <%if response.include?("high") || response.include?("low")%>
       <%if response.include?("way")%>
